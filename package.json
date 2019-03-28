@@ -1,0 +1,27 @@
+{
+  "name": "stock_symbol",
+  "version": "1.0.0",
+  "description": "example demo for stock api with node",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderjonny/stock_symbol.git"
+  },
+  "keywords": [
+    "stocks",
+    "nodejs"
+  ],
+  "author": "Jonny Kang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coderjonny/stock_symbol/issues"
+  },
+  "homepage": "https://github.com/coderjonny/stock_symbol#readme"
+}

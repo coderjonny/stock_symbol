@@ -3,6 +3,8 @@ var server = http.createServer( (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 } );
 const { getLogo, getNews, getQuote } = require('./api')
+const { logger } = require('./logger')
+const { getTime } = require('./utils')
 
 server.on("request", (request, response) => {
   var body = [];
@@ -15,6 +17,7 @@ server.on("request", (request, response) => {
   request.on("end", () => {
       body = Buffer.concat(body).toString();
       const {symbol} = JSON.parse(postData)
+
       let responseObject = { }
       response.statusCode = 200;
       response.setHeader('Content-Type', 'application/json');
@@ -33,6 +36,12 @@ server.on("request", (request, response) => {
       const endResponse = (symbolData) => {
         response.write(JSON.stringify(symbolData));
         response.end();
+        const logData = {
+          requestUrl: request.headers.host,
+          timeRequested: getTime(),
+          status: response.statusCode
+        }
+        logger(logData)
       }
 
       if (symbol) {
